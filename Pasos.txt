@@ -1,0 +1,12 @@
+ # Como va a ser la manera de selección de archivos
+
+1) Primer
+
+Leer los archivos 
+    Leer el contenido del archivo y retornar una matriz 
+
+
+
+
+
+
