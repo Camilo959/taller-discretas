@@ -1,21 +1,3 @@
-
-# ruta = input('Digite el nombre del archivo: ')
-
-# ruta = 'Grafos\GD-LA-0003-001.txt'
-
-# Grafos\GD-LA-0003-001.txt
-
-'''
-    try:
-        with open(route, 'r') as f_obj:
-            lines = f_obj.readlines()
-
-        return lines
-    except Exception as err:
-        print(f"Unexpected {err=}, {type(err)=}")
-        exit(0)    
-'''
-
 # Variables
 
 route = 'Grafos\GD-LA-0003-001.txt'
@@ -32,21 +14,17 @@ def open_file(route):
 file_content = open_file(route)
 
 # Extraer la informacion para trabajar con ella 
-def clean_content(file_content):
+def clean_content(file_content): # limpiar
     graph = []
     for i in file_content:
         if not i.startswith('#'):
-            
-            # i = i.replace('   ',',')
-            # i = i.replace('\n','')
+
             graph.append(i.split())   # grande 
     return graph
 
 new_content = clean_content(file_content)
 
 type_graph = new_content[0]
-
-
 
 def graph_representation(type_graph):
 
@@ -73,25 +51,8 @@ def graph_info(graph_content):
     num_vertices = len(graph_content) - 1
     print('El numero de vertices es: ', num_vertices)
 
-# A: B
-# B: null
-# C: A
-# D: A C    
-
-# (A -> B)
-# (B)
-# (C -> A)
-# (D -> A) (D -> C)
-
 print(new_content)
 
 graph_representation(type_graph)
 
 graph_info(new_content)
-
-
-
-    
-        
-
-

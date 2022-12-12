@@ -3,7 +3,7 @@ class Lectura:
     def __init__(self) -> None:
         pass
 
-    def read(self, route) -> str:
+    def read(self, route) -> str: 
 
         try:
             with open(route, 'r') as f_obj:
@@ -13,7 +13,6 @@ class Lectura:
             print(f"Unexpected {err=}, {type(err)=}")
 
             return 'Error'
-file = Lectura()
+# file = Lectura()
 
-mostrar = file.read('asdf')
-
+# mostrar = file.read('asdf')
