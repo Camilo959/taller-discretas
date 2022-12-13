@@ -152,3 +152,24 @@ class Gui:
             self.grafito = self.contenido_matriz
             self.vertex = self.objGrafo.matrix_adj(self.objConvertir.GNMA_f())[0]
             self.edge = self.objGrafo.matrix_adj(self.objConvertir.GNMA_f())[1]
+
+
+    def diccionnario(self,grafo):
+        self.grafito = grafo
+        lista = []
+        listOfKeys = self.grafito.values()
+        listOfKeys = list(listOfKeys)
+        x = str(listOfKeys)[1:-1]
+        x = x.translate(str.maketrans("[]", "''", ""))
+        lista.append(x)
+        return lista
+
+    def lista(self):
+        print(self.grafito)
+        self.grafito.pop(0)
+        cr = ""
+        for x in range(len(self.grafito)):
+            cr = cr + str(x) + ": " + "[" + self.grafito[x] + "]" + "\n"
+        print(cr.strip())
+
+
