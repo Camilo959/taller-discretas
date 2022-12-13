@@ -1,6 +1,8 @@
+from Lectura import Lectura
+
 class Limpiar:
 
-    def _init_(self) -> None:
+    def __init__(self):
         pass
 
     def clean_content(self, contenido):
@@ -13,5 +15,12 @@ class Limpiar:
     def for_matrix(self, contenido):
         grafo_4 = []
         for i in contenido:
-            grafo_4.append([int(x) for x in i])
+            try:
+                grafo_4.append([int(x) for x in i])
+            except ValueError:
+                try:
+                    grafo_4.append([float(x) for x in i])
+                except ValueError:
+                    grafo_4.append([str(x) for x in i])
         return grafo_4
+
