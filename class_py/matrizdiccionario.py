@@ -129,4 +129,31 @@ matriz_zzz = [[1, 0, 1, 1, 0],
           [0, 1, 1, 0, 1], 
           [0, 0, 0, 1, 1]]
 
+print(matriz_zzz)
 incidence_to_adjacency(matriz_zzz)
+
+
+my_dict = {
+    "Alice": [12,22],
+    "Bob": 30,
+    "Charlie": 35
+}
+
+contenidito = ''
+for key, value in my_dict.items():
+    # Mostramos cada elemento del diccionario en una línea diferente
+
+    #contenidito = str(key) + ': ' + str(value) + '\n' + contenidito
+    #contenidito = str(print(f"{key}: {value}"))
+
+    contenidito += "".join("{}: {}".format(key,value)) + '\n'
+
+contenido = ''
+# Iteramos sobre la matriz
+for row in matriz_zzz:
+    # Mostramos cada elemento de la fila en una línea diferente
+    # contenido = (str(row) + '\n') + contenido
+    contenido += "".join("{}".format(row)) + '\n'
+
+print(contenidito)
+print(contenido)

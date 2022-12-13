@@ -130,12 +130,13 @@ class Convertir:
         return list_matrix_mi
 
     def GPMA_f(self):
-        pass
+        list_matrix = self.list_g
+        return list_matrix
 
     def GNMA_f(self):
         list_matrix = self.list_g
         return list_matrix
-
+'''
 hey = [[1, 6, 8], [0, 4, 6, 9], [4, 6], [4, 5, 8], [1, 2, 3, 5, 9], [3, 4], [0, 1, 2], [8, 9], [0, 3, 7], [1, 4, 7]]
 
 
@@ -145,3 +146,4 @@ conver = Convertir(hey_2,'3')
 
 print(conver.matrix_to_list(hey_2, len(hey_2)))
 print(conver.matrix_to_list(hey, len(hey)))
+'''

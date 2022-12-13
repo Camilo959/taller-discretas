@@ -38,7 +38,8 @@ class Limpiar:
         return s
     '''
 
-route = 'Grafos\GD-LA-0003-003.txt'
+'''   
+route = 'Grafos\GN-MI-0004-001.txt'
 file = Lectura()
 content = file.read(route)
 
@@ -47,3 +48,4 @@ hola_2 = obj.clean_content(content)
 hola_2.pop(0)
 
 print(obj.for_matrix(hola_2))
+'''

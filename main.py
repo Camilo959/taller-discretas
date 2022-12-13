@@ -1,6 +1,8 @@
+from Gui import *
 
 def run():
-    pass
+    v = Gui()
+    v.inicar_ventana()
 
 if __name__ == '__main__':
-    pass
+    run()
