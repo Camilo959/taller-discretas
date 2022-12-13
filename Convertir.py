@@ -1,7 +1,4 @@
-# graph_list = [ 'GDLA', 'GDMA', 'GNLA', 'GNMI', 'GPMA', 'GNMA' ]
-
 # Recibe una matriz
-
 class Convertir: 
 
     def __init__(self, list_g, type_graph):
@@ -9,17 +6,71 @@ class Convertir:
         self.type_graph = type_graph
         self.n_vertex = len(list_g)
 
-    # Representa una lista de adyacencia como un diccionario
+    '''
+
+    # Cuando leemos una lista de adyacencia:
+        1) Convierte una matriz de adyacencia
+        2) Convierte una matriz de incidencia
+
+    # Cuando leemos una matriz de adyacencia:
+        3) Convierte una lista de adyacencia (como diccionario)
+        4) Convierte una matriz de incidencia
+
+    # Cuando leemos una matriz de incidencia:
+        5) Convierte una matriz de adyacencia
+        6) Convierte una lista de adyacencia (como diccionario)
+
+    '''
+
+    # Representa una lista de adyacencia como un diccionario 
     def matrix_to_list(self,list_gr,vertex):
         list_adj = {}
         for i in range(vertex):
             list_adj.setdefault(i,list_gr[i])
         return list_adj # Lista de adyacencia
+    
+    def listadj_matrixadj(list_adj):
+
+        '''
+        # 1
+        '''
+        n = len(list_adj)
+        matriz = [[0 for i in range(n)] for j in range(n)]
+        for i, vértice in enumerate(list_adj):
+            for vecino in list_adj[vértice]:
+                matriz[i][vecino] = 1
+
+        return matriz
+        
+    def LA_MA(self,adj_list):
+
+        '''
+        # 2 
+        '''
+        vertices = []
+        for vertex in adj_list:
+            vertices.append(vertex)
+
+        vertices.sort()
+
+        adj_matrix = []
+        for i in range(len(vertices)):
+            adj_matrix.append([0] * len(vertices))
+
+        for i in range(len(vertices)):
+            for j in range(len(vertices)):
+                if vertices[j] in adj_list[vertices[i]]:
+                    adj_matrix[i][j] = 1
+        
+        return adj_matrix # Matriz de adyacencia
 
     # Devuelve una lista de adyacencia a partir
     # de una matriz de adyacencia
     def matriz_diccionario(self, list_matrix): 
 
+        '''
+        # 3
+        '''
         adj_list = []
 
         for i in range(len(list_matrix)):
@@ -34,6 +85,9 @@ class Convertir:
     # Devuelve una matriz de incidencia a partir de una matriz de adyacencia
     def MA_MI(self,adj_matrix, vertex):
 
+        '''
+        # 4
+        '''
         edges = 0
         for i in range(vertex):
             for j in range(vertex):
@@ -53,24 +107,7 @@ class Convertir:
 
     # Representa una lista de adyacencia (en forma de diccionario)
     # en un matriz de adyacencia
-    def LA_MA(self,adj_list):
 
-        vertices = []
-        for vertex in adj_list:
-            vertices.append(vertex)
-
-        vertices.sort()
-
-        adj_matrix = []
-        for i in range(len(vertices)):
-            adj_matrix.append([0] * len(vertices))
-
-        for i in range(len(vertices)):
-            for j in range(len(vertices)):
-                if vertices[j] in adj_list[vertices[i]]:
-                    adj_matrix[i][j] = 1
-        
-        return adj_matrix # Matriz de adyacencia
 
     # check
     def GDLA_f(self):
@@ -107,7 +144,7 @@ objeto = Convertir(grafo_4, 'GDLA')
 
 hola = objeto.GDLA_f()
 hola_2 = objeto.GNLA_f()
-hola_5 = objeto.matriz_diccionario(grafo_4)
+hola_5 = objeto.matrix_to_list(grafo_4, len(grafo_4))
 print(hola)
 print(hola_2)
 print(hola_5)

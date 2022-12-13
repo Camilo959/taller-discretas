@@ -2,7 +2,7 @@ from Lectura import Lectura
 
 class Limpiar:
 
-    def __init__(self) -> None:
+    def __init__(self):
         pass
 
     def clean_content(self, contenido):
@@ -18,7 +18,10 @@ class Limpiar:
             try:
                 grafo_4.append([int(x) for x in i])
             except ValueError:
-                grafo_4.append([float(x) for x in i])
+                try:
+                    grafo_4.append([float(x) for x in i])
+                except ValueError:
+                    grafo_4.append([str(x) for x in i])
         return grafo_4
         
     '''
@@ -35,11 +38,12 @@ class Limpiar:
         return s
     '''
 
-route = 'Grafos\GP-MA-0001-007.txt'
+route = 'Grafos\GN-MA-0001-002.txt'
 file = Lectura()
 content = file.read(route)
 
 obj = Limpiar()
 hola_2 = obj.clean_content(content)
 hola_2.pop(0)
+
 print(obj.for_matrix(hola_2))

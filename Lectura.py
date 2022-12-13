@@ -1,9 +1,9 @@
 class Lectura:
 
-    def __init__(self) -> None:
+    def __init__(self):
         pass
 
-    def read(self, route) -> str: 
+    def read(self, route): 
 
         try:
             with open(route, 'r') as f_obj:
