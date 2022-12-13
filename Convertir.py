@@ -25,8 +25,13 @@ class Convertir:
     # Representa una lista de adyacencia como un diccionario 
     def matrix_to_list(self,list_gr,vertex):
         list_adj = {}
+        posicion=0
+
+        if not any(0 in sub for sub in list_gr):
+            posicion = 1
+
         for i in range(vertex):
-            list_adj.setdefault(i,list_gr[i])
+            list_adj.setdefault(i+posicion,list_gr[i])
         return list_adj # Lista de adyacencia
     
     def listadj_matrixadj(list_adj):
@@ -41,7 +46,7 @@ class Convertir:
                 matriz[i][vecino] = 1
 
         return matriz
-        
+
     def LA_MA(self,adj_list):
 
         '''
@@ -131,20 +136,12 @@ class Convertir:
         list_matrix = self.list_g
         return list_matrix
 
-grafo_2 = [[2, 4], [5], [5, 6], [2], [4], [6]]
+hey = [[1, 6, 8], [0, 4, 6, 9], [4, 6], [4, 5, 8], [1, 2, 3, 5, 9], [3, 4], [0, 1, 2], [8, 9], [0, 3, 7], [1, 4, 7]]
 
-grafo_3 = [[1, 6, 8], [0, 4, 6, 9], [4, 6], [4, 5, 8], [1, 2, 3, 5, 9], [3, 4], [0, 1, 2], [8, 9], [0, 3, 7], [1, 4, 7]]
 
-grafo_4 = [[0, 1, 1, 0, 0], 
-           [1, 0, 0, 0, 0], 
-           [0, 0, 0, 1, 0], 
-           [1, 0, 0, 0, 0], 
-           [0, 1, 1, 0, 1]]
-objeto = Convertir(grafo_4, 'GDLA')
+hey_2 = [[2, 4], [5], [5, 6], [2], [4], [6]]
 
-hola = objeto.GDLA_f()
-hola_2 = objeto.GNLA_f()
-hola_5 = objeto.matrix_to_list(grafo_4, len(grafo_4))
-print(hola)
-print(hola_2)
-print(hola_5)
+conver = Convertir(hey_2,'3')
+
+print(conver.matrix_to_list(hey_2, len(hey_2)))
+print(conver.matrix_to_list(hey, len(hey)))

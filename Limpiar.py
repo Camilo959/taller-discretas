@@ -38,7 +38,7 @@ class Limpiar:
         return s
     '''
 
-route = 'Grafos\GN-MA-0001-002.txt'
+route = 'Grafos\GD-LA-0003-003.txt'
 file = Lectura()
 content = file.read(route)
 
